@@ -1,0 +1,10 @@
+#####################################################
+# Avoiding unnecessary files
+*.sketch
+*.fig
+
+*.xd
+.DS_Store
+.prettierignore
+
+prototype
