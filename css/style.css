@@ -24,7 +24,7 @@ body {
 
 .containor {
   width: 30em;
-  margin: 10em auto;
+  margin: 13em auto;
 }
 
 .row {
@@ -178,6 +178,33 @@ h3,
 @keyframes draw {
   0% {
     height: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    font-size: 14px;
+  }
+  .containor {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 450px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+@media (max-height: 1024px) {
+  .containor {
+    margin: 11em auto;
+  }
+}
+
+@media (max-height: 690px) {
+  .containor {
+    margin: 6em auto;
   }
 }
 /*# sourceMappingURL=style.css.map */
