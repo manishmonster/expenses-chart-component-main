@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap");
 :root {
   --softred: hsl(10, 79%, 65%);
+  --softred1: hsl(10, 79%, 75%);
   --cyan: hsl(186, 34%, 60%);
+  --cyan1: hsl(186, 34%, 70%);
   --darkbrown: hsl(25, 47%, 15%);
   --Mediumbrown: hsl(28, 10%, 53%);
   --Cream: hsl(27, 66%, 92%);
@@ -62,6 +64,7 @@ body {
 
 hr {
   border: 0.012em solid var(--Cream);
+  margin: 1em 0;
 }
 
 h3 {
@@ -94,8 +97,87 @@ h2 {
   text-align: right;
 }
 
-h2, h3, .percentage {
+h2,
+h3,
+.percentage {
   color: var(--darkbrown);
   font-weight: 700;
+}
+
+.chart {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  height: 200px;
+  margin: -0.5em 0;
+  margin-bottom: 2.5em;
+}
+
+.chart li {
+  position: relative;
+  display: table-cell;
+  vertical-align: bottom;
+  height: 200px;
+}
+
+.chart span {
+  margin: 0 .5em;
+  display: block;
+  background: var(--softred);
+  border-radius: .25em;
+  -webkit-animation: draw 1s ease-in-out;
+          animation: draw 1s ease-in-out;
+  position: relative;
+}
+
+.chart span.highest {
+  background-color: var(--cyan);
+}
+
+.chart span:before {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  padding: 5px 0;
+  display: block;
+  text-align: center;
+  content: attr(title);
+}
+
+.chart span:hover {
+  cursor: pointer;
+  background: var(--softred1);
+}
+
+.chart span:hover.highest {
+  background-color: var(--cyan1);
+}
+
+.chart span:hover:after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: block;
+  text-align: center;
+  content: attr(amount);
+  background-color: var(--darkbrown);
+  color: var(--Cream);
+  top: -2.2em;
+  margin: 0 -0.5em;
+  padding: .15em 0;
+  border-radius: .25em;
+}
+
+@-webkit-keyframes draw {
+  0% {
+    height: 0;
+  }
+}
+
+@keyframes draw {
+  0% {
+    height: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */

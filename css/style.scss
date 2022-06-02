@@ -1,31 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
-:root{
+
+:root {
     --softred: hsl(10, 79%, 65%);
+    --softred1: hsl(10, 79%, 75%);
     --cyan: hsl(186, 34%, 60%);
+    --cyan1: hsl(186, 34%, 70%);
     --darkbrown: hsl(25, 47%, 15%);
     --Mediumbrown: hsl(28, 10%, 53%);
     --Cream: hsl(27, 66%, 92%);
     --Very-pale-orange: hsl(33, 100%, 98%);
 }
-*{
+
+* {
     font-family: 'DM Sans', sans-serif;
     padding: 0;
     margin: 0;
 }
-body{
+
+body {
     font-size: 18px;
     color: var(--Mediumbrown);
     background-color: var(--Cream);
 }
-.containor{
+
+.containor {
     width: 30em;
     margin: 10em auto;
 }
-.row{
+
+.row {
     padding: 1.5em;
     background-color: var(--Very-pale-orange);
     border-radius: 1em;
 }
+
 .heading {
     margin-bottom: 1em;
     background-color: var(--softred);
@@ -33,35 +41,114 @@ body{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    align-content: flex-end;        
-    align-items: flex-end;        
-    p{
+    align-content: flex-end;
+    align-items: flex-end;
+
+    p {
         font-size: .8em;
-    } 
-    p.balance{
+    }
+
+    p.balance {
         font-size: 1.5em;
     }
 }
-hr{
+
+hr {
     border: .012em solid var(--Cream);
+    margin: 1em 0;
 }
-h3{
+
+h3 {
     font-size: 2em;
 }
-h2{
+
+h2 {
     font-size: 2.5em;
 }
-.total{
+
+.total {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    align-content: flex-end;        
+    align-content: flex-end;
     align-items: flex-end;
-    .comparison{
+
+    .comparison {
         text-align: right;
     }
 }
-h2, h3, .percentage{
+
+h2,
+h3,
+.percentage {
     color: var(--darkbrown);
     font-weight: 700;
+}
+
+.chart {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 200px;
+    margin: -0.5em 0;
+    margin-bottom: 2.5em;
+
+    li {
+        position: relative;
+        display: table-cell;
+        vertical-align: bottom;
+        height: 200px;
+    }
+
+    span {
+        margin: 0 .5em;
+        display: block;
+        background: var(--softred);
+        border-radius: .25em;
+        animation: draw 1s ease-in-out;
+        position: relative;
+        &.highest {
+            background-color: var(--cyan);
+        }
+
+        &:before {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 100%;
+            padding: 5px 0;
+            display: block;
+            text-align: center;
+            content: attr(title);
+        }
+
+        &:hover {
+            cursor: pointer;
+            background: var(--softred1);
+
+            &.highest {
+                background-color: var(--cyan1);
+            }
+            &:after{
+                position:absolute;
+                left:0;right:0;
+                display:block;
+                text-align:center;
+                content:attr(amount);
+                background-color: var(--darkbrown);
+                color: var(--Cream);
+                top: -2.2em;
+                margin: 0 -0.5em;
+                padding: .15em 0;
+                border-radius: .25em;
+              }
+        }
+    }
+
+}
+
+@keyframes draw {
+    0% {
+        height: 0;
+    }
 }
